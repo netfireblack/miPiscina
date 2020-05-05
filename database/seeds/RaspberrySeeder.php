@@ -1,9 +1,9 @@
 <?php
 
-use \App\Administrador;
+use App\Raspberry;
 use Illuminate\Database\Seeder;
 
-class AdministradorSeeder extends Seeder
+class RaspberrySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class AdministradorSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');   // Desactivar comprovación de claves foraneas
-        Administrador::truncate();                      // Eliminar datos de la tabla
+        Raspberry::truncate();                          // Eliminar datos de la tabla
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');   // Activar comprovación de claves foraneas
 
-        factory(Administrador::class, 3)->create();    // Crear 10 administradores de prueba.
+        factory(Raspberry::class, 3)->create();         // Crear 3 raspberrys de prueba.
     }
 }
