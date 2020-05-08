@@ -23,7 +23,7 @@ class Piscina extends Model
 
     public function condicion()
     {
-        return $this->belongsTo('App\CondicionPiscina','CONDICION', 'CONDICION');
+        return $this->belongsTo('App\CondicionPiscina','CONDICION', 'ID_CONDICION');
     }
 
     public function raspberry()

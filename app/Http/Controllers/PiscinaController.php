@@ -14,7 +14,11 @@ class PiscinaController extends Controller
      */
     public function index()
     {
-        //
+        $piscinas = Piscina::all();
+
+        $title = "Lista de Piscinas:";
+
+        return view('index', compact('title','piscinas'));
     }
 
     /**
