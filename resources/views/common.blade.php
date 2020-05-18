@@ -10,27 +10,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      <nav class="navbar navbar-expand-sm navbar-light">
+      
+      {{-- Barra de navegación --}}
+      
+      <nav class="navbar navbar-expand-sm navbar-light bg-primary">
           <span class="navbar-brand">Mi Piscina</span>
           <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu"
               aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="menu">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                  {{-- Direcccional al index --}}
+                  
                   <li class="nav-item active">
                       <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
                   </li>
+
+                  {{-- Direccionar al login --}}
+      
                   <li class="nav-item">
                       <a class="nav-link" href="logIn">Iniciar Seción</a>
                   </li>
           </div>
       </nav>
+      <br>
     <main>
-        <div class="jumbotron">
-            <h1 class="display-3">@yield('jumbo_title')</h1>
-            <div class="container">
-              @yield('jumbo_body')
-            </div>
-        </div>
+      @yield('main')
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -18,6 +18,6 @@ class CondicionPiscina extends Model
 
     public function piscinas()
     {
-        return $this->hasMany('App\Piscina','CONDICION','CONDICION');
+        return $this->hasMany('App\Piscina','ID_CONDICION','CONDICION');
     }
 }

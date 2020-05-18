@@ -24,7 +24,7 @@ class AdministradorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.registro');
     }
 
     /**
@@ -35,7 +35,31 @@ class AdministradorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([  //Solicitar Datos y validarlos
+            'nom'   => 'required',
+            'ap'    => 'required',
+            'email' =>  ['required','email', 'unique:ADMINISTRADOR,correo'],
+            'pass'  =>   'required',
+            'calle' =>  '',
+            'num'   =>  ''
+        ],[                             //Mensajes de error en caso de fallo de validación
+            'nom.required'  =>  'El campo nombre es obligatorio!',
+            'ap.required'   =>  'El campo apellido es obligatorio!',
+            'email.required'=>  'El campo correo es obligatorio!',
+            'email.email'   =>  'Por favor ingresa un correo válido',
+            'email.unique'  =>  'El correo ingresado ya existe',
+            'pass.required' =>  'El campo contraseña es obligatorio!'
+        ]);
+
+        Administrador::create([         // Crear Administrador
+            'nombre'    =>  $data['nom'],
+            'apellido'  =>  $data['ap'],
+            'correo'    =>  $data['email'],
+            'contrasena'=>  $data['pass'],
+            'direccion' =>  $data['calle']." ".$data['num']
+        ]);
+
+        return redirect()->route('index');
     }
 
     /**

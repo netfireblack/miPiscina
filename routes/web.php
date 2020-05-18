@@ -13,4 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PiscinaController@index');
+Route::get('/', 'PiscinaController@index')
+    ->name('index');
+
+    // Formulario registro admin
+Route::get('/admin/registro', 'AdministradorController@create')
+    ->name('admin.create');
+
+    // Registro de admin en la DB
+Route::post('/admin/','AdministradorController@store');
